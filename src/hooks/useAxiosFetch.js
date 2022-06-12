@@ -1,4 +1,4 @@
-import { useState, UseEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useAxiosFetch = (dataUrl) => {
@@ -14,7 +14,7 @@ const useAxiosFetch = (dataUrl) => {
             setIsLoading(true);
             try {
                 const response = await axios.get(url, {
-                    cancelToken: source.data
+                    cancelToken: source.token
                 });
                 if (isMounted) {
                     setData(response.data);
